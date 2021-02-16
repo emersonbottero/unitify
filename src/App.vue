@@ -1,16 +1,57 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view />
-  </div>
+   <v-app id="inspire">
+    <v-system-bar app dark color="primary" class="gradient">
+      AAA
+      Aaaaaaaaaaaaa Bbbbbbbbbbb
+      <v-spacer></v-spacer>
+
+      someone is here
+    </v-system-bar>
+
+    <v-app-bar app flat prominent shrink-on-scroll class="gradient" dark>
+      <v-app-bar-nav-icon @click="drawer = !drawer"></v-app-bar-nav-icon>
+
+      <v-toolbar-title>Application</v-toolbar-title>
+    </v-app-bar>
+
+    <v-navigation-drawer
+      v-model="drawer"
+      fixed
+      temporary
+    >
+      <!--  -->
+    </v-navigation-drawer>
+
+    <v-main class="grey lighten-2">
+      <v-container>
+        <v-row>
+          <template v-for="n in 3">
+            <v-col
+              :key="n"
+              cols="12"
+            >
+              <strong>Category {{ n }}</strong>
+            </v-col>
+
+            <v-col
+              v-for="j in 6"
+              :key="`${n}${j}`"
+              cols="4"
+              md="4"
+            >
+              <v-sheet class="pa-2" height="150"></v-sheet>
+            </v-col>
+          </template>
+        </v-row>
+      </v-container>
+    </v-main>
+  </v-app>
+      <!-- <router-link to="/">Home</router-link> |
+      <router-link to="/about">About</router-link> -->
 </template>
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
